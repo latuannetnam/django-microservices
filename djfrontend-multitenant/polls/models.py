@@ -11,7 +11,7 @@ class Question(models.Model):
         return self.question_text
 
     class APIMeta:
-        db_name = 'api'
+        db_name = 'site1'
 
 
 class Choice(models.Model):
@@ -24,4 +24,4 @@ class Choice(models.Model):
         return self.choice_text
 
     class APIMeta:
-        db_name = 'api'
+        db_name = 'site1'

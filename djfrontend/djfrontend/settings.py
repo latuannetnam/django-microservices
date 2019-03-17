@@ -25,7 +25,7 @@ SECRET_KEY = '&rj+9vws8qrp)rl3dv3(wc5jjla@**zbb5hobcw4zj^r5euzre'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'site1.test.com', 'site2.test.com']
 
 
 # Application definition
@@ -82,7 +82,7 @@ DATABASES = {
     },
     'api': {
         'ENGINE': 'rest_models.backend',
-        'NAME': 'http://localhost:8000/',
+        'NAME': 'http://backend1.test.com:8000/',
         # 'USER': 'admin',
         # 'PASSWORD': 'netnam1234',
         # 'AUTH': 'rest_models.backend.auth.BasicAuth',

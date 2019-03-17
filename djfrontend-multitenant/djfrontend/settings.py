@@ -82,13 +82,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     },
-    'api': {
-        'ENGINE': 'rest_models.backend',
-        'NAME': 'http://localhost:8000/',
-        # 'USER': 'admin',
-        # 'PASSWORD': 'netnam1234',
-        # 'AUTH': 'rest_models.backend.auth.BasicAuth',
-    },
     'site1': {
         'ENGINE': 'rest_models.backend',
         'NAME': 'http://backend1.test.com:8000/',
