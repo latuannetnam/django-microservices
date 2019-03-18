@@ -9,7 +9,7 @@ Django Microservices testbed for some use cases:
 ### Deploy on Backend
 * git clone https://github.com/latuannetnam/django-microservices.git
 * cd django-microservices/frontend-single-backend/djbackend
-* pip3 install -r requirements.txt
+* sudo -H pip3 install -r requirements.txt
 * python3 manage.py makemigrations polls
 * python3 manage.py migrate
 * python3 manage.py createsuperuser --email admin@example.com --username admin
@@ -24,7 +24,7 @@ Django Microservices testbed for some use cases:
 ### Deploy on Frontend
 * git clone https://github.com/latuannetnam/django-microservices.git
 * cd django-microservices/frontend-single-backend/djfrontend
-* pip3 install -r requirements.txt
+* sudo -H pip3 install -r requirements.txt
 * cd djfrontend
 * Edit settings.py
 ``` python
@@ -65,6 +65,7 @@ Django Microservices testbed for some use cases:
 #### Backend1: (backend1.test.com)
 * git clone https://github.com/latuannetnam/django-microservices.git
 * cd django-microservices/djbackend
+* sudo -H pip3 install -r requirements.txt
 * export DB_NAME=site1.sqlite3
 * python3 manage.py makemigrations polls
 * python3 manage.py migrate
@@ -76,6 +77,7 @@ Django Microservices testbed for some use cases:
 #### Backend2: (backend2.test.com)
 * git clone https://github.com/latuannetnam/django-microservices.git
 * cd django-microservices/djbackend
+* sudo -H pip3 install -r requirements.txt
 * export DB_NAME=site2.sqlite3
 * python3 manage.py makemigrations polls
 * python3 manage.py migrate
@@ -88,6 +90,7 @@ Django Microservices testbed for some use cases:
 ### Deploy on Frontend
 * git clone https://github.com/latuannetnam/django-microservices.git
 * cd django-microservices/djfrontend-multitenant
+* sudo -H pip3 install -r requirements.txt
 * python3 manage.py makemigrations polls
 * python3 manage.py migrate
 * python3 manage.py createsuperuser --email admin@example.com --username admin
