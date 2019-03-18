@@ -132,3 +132,45 @@ STATIC_URL = '/static/'
 DATABASE_ROUTERS = [
     'rest_models.router.RestModelRouter',
 ]
+
+# Logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{asctime} {levelname} {module} {thread:d} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+        'colored': {  # a nice colored format for terminal output
+            'format': '%(asctime)s %(thread)d '
+                      '\033[1;33m%(levelname)s\033[0m [\033[1;31m%(name)s'
+                      '\033[0m:\033[1;32m%(lineno)s'
+                      '\033[0m:\033[1;35m%(funcName)s\033[0m] \033[1;37m%(message)s\033[0m'
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'colored'
+        },
+    },
+    'loggers': {
+        # 'tenants': {
+        #     'handlers': ['console'],
+        #     'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+        #     'propagate': False,
+        # },
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+            'propagate': False,
+            
+        },
+        
+    },
+}

@@ -161,7 +161,7 @@ LOGGING = {
             'style': '{',
         },
         'colored': {  # a nice colored format for terminal output
-            'format': '%(asctime)s '
+            'format': '%(asctime)s %(thread)d '
                       '\033[1;33m%(levelname)s\033[0m [\033[1;31m%(name)s'
                       '\033[0m:\033[1;32m%(lineno)s'
                       '\033[0m:\033[1;35m%(funcName)s\033[0m] \033[1;37m%(message)s\033[0m'
@@ -181,7 +181,7 @@ LOGGING = {
         },
         'django': {
             'handlers': ['console'],
-            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'WARN'),
             'propagate': False,
             
         },

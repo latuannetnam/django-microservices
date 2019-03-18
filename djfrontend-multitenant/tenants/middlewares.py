@@ -4,6 +4,7 @@ from uuid import uuid4
 import logging
 import os
 import sys
+import time
 from django.db import connections
 from .utils import tenant_db_from_request
 
@@ -18,14 +19,15 @@ class TenantMiddleware:
 
     def __call__(self, request):
         db = tenant_db_from_request(request)
-        logger.debug("DB from request:%s", db)
-        setattr(THREAD_LOCAL, "DB", db)
+        logger.debug("Set DB from request:%s", db)
+        set_db_for_router(db)
+        # time.sleep(5)
         response = self.get_response(request)
         return response
 
 
 def get_current_db_name():
-    logger.debug("current DB:%s", getattr(THREAD_LOCAL, "DB", None))
+    logger.debug("Get DB from middleware:%s", getattr(THREAD_LOCAL, "DB", None))
     return getattr(THREAD_LOCAL, "DB", None)
 
 
