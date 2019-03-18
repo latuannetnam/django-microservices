@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     },
-    'site1': {
+    'site1.test.com': {
         'ENGINE': 'rest_models.backend',
         'NAME': 'http://backend1.test.com:8000/',
         'OPTIONS': {'SKIP_CHECK': True},
@@ -90,7 +90,7 @@ DATABASES = {
         'PASSWORD': 'netnam1234',
         'AUTH': 'rest_models.backend.auth.BasicAuth',
     },
-    'site2': {
+    'site2.test.com': {
         'ENGINE': 'rest_models.backend',
         'NAME': 'http://backend2.test.com:8001/',
         'OPTIONS': {'SKIP_CHECK': True},
@@ -146,3 +146,45 @@ STATIC_URL = '/static/'
 
 #  Multi-tennant for Rest-model
 DATABASE_ROUTERS = ["tenants.router.TenantRouter"]
+
+# Logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{asctime} {levelname} {module} {thread:d} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+        'colored': {  # a nice colored format for terminal output
+            'format': '%(asctime)s '
+                      '\033[1;33m%(levelname)s\033[0m [\033[1;31m%(name)s'
+                      '\033[0m:\033[1;32m%(lineno)s'
+                      '\033[0m:\033[1;35m%(funcName)s\033[0m] \033[1;37m%(message)s\033[0m'
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'colored'
+        },
+    },
+    'loggers': {
+        'tenants': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+            'propagate': False,
+        },
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+            'propagate': False,
+            
+        },
+        
+    },
+}

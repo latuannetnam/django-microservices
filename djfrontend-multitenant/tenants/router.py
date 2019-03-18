@@ -6,16 +6,7 @@ from .middlewares import get_current_db_name
 # from rest_models.router import get_default_api_database
 from rest_models.router import RestModelRouter
 
-LOG_LEVEL = os.getenv('LOG_LEVEL', 'DEBUG')
 logger = logging.getLogger(__name__)
-logger.setLevel(LOG_LEVEL)
-formatter = logging.Formatter(
-    '%(asctime)s - %(levelname)s - %(message)s')
-ch = logging.StreamHandler(sys.stdout)
-# ch.setLevel(LOG_LEVEL)
-ch.setFormatter(formatter)
-logger.addHandler(ch)
-
 
 class TenantRouter(RestModelRouter):
     @staticmethod

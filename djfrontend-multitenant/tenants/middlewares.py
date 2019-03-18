@@ -7,15 +7,7 @@ import sys
 from django.db import connections
 from .utils import tenant_db_from_request
 
-LOG_LEVEL = os.getenv('LOG_LEVEL', 'DEBUG')
 logger = logging.getLogger(__name__)
-logger.setLevel(LOG_LEVEL)
-formatter = logging.Formatter(
-    '%(asctime)s - %(levelname)s - %(message)s')
-ch = logging.StreamHandler(sys.stdout)
-# ch.setLevel(LOG_LEVEL)
-ch.setFormatter(formatter)
-logger.addHandler(ch)
 
 THREAD_LOCAL = threading.local()
 
