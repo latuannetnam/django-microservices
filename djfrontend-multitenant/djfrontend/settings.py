@@ -86,17 +86,17 @@ DATABASES = {
         'ENGINE': 'rest_models.backend',
         'NAME': 'http://backend1.test.com:8000/',
         'OPTIONS': {'SKIP_CHECK': True},
-        # 'USER': 'admin',
-        # 'PASSWORD': 'netnam1234',
-        # 'AUTH': 'rest_models.backend.auth.BasicAuth',
+        'USER': 'admin',
+        'PASSWORD': 'netnam1234',
+        'AUTH': 'rest_models.backend.auth.BasicAuth',
     },
     'site2': {
         'ENGINE': 'rest_models.backend',
         'NAME': 'http://backend2.test.com:8001/',
         'OPTIONS': {'SKIP_CHECK': True},
-        # 'USER': 'admin',
-        # 'PASSWORD': 'netnam1234',
-        # 'AUTH': 'rest_models.backend.auth.BasicAuth',
+        'USER': 'admin',
+        'PASSWORD': 'netnam1234',
+        'AUTH': 'rest_models.backend.auth.BasicAuth',
     },
 }
 

@@ -83,9 +83,9 @@ DATABASES = {
     'api': {
         'ENGINE': 'rest_models.backend',
         'NAME': 'http://backend1.test.com:8000/',
-        # 'USER': 'admin',
-        # 'PASSWORD': 'netnam1234',
-        # 'AUTH': 'rest_models.backend.auth.BasicAuth',
+        'USER': 'admin',
+        'PASSWORD': 'netnam1234',
+        'AUTH': 'rest_models.backend.auth.BasicAuth',
     },
 }
 
