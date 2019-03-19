@@ -1,4 +1,4 @@
-# django-microservices demo
+# Django Microservices demo
 Django Microservices testbed for some use cases:
 * Single tenant: Frontend connects to single backend
 * Multi-tenant: Multi-sites use 1 Frontend to connects to multiple backends
@@ -50,7 +50,8 @@ Django Microservices testbed for some use cases:
 * python3 manage.py runserver 0.0.0.0:8000
 * Admin URL:http://frontend_ip:8000/admin
 
-## Multi-tenants
+## Multi-tenants method 1: multi-site
+**Determine tenant by hostname**
 ![Multi-tenants architecture](Microservices-Testbed-Frontend-Multi-Tenants.png)
 
 ### Setup host
@@ -89,7 +90,7 @@ Django Microservices testbed for some use cases:
 
 ### Deploy on Frontend
 * git clone https://github.com/latuannetnam/django-microservices.git
-* cd django-microservices/djfrontend-multitenant
+* cd django-microservices/djfrontend-multisite
 * sudo -H pip3 install -r requirements.txt
 * python3 manage.py makemigrations polls
 * python3 manage.py migrate
@@ -99,4 +100,21 @@ Django Microservices testbed for some use cases:
 * Admin URL:http://site1.test.com:9000/admin
 * Admin URL:http://site2.test.com:9000/admin
 
-
+## Multi-tenants method 2: multi-group
+**Determine tenant by user's group**
+![Multi-tenants architecture](Microservices-Testbed-Frontend-Multi-Group.png)
+### Deploy on Backend
+* The same as Multi-tenants method 1
+### Deploy on Frontend
+* git clone https://github.com/latuannetnam/django-microservices.git
+* cd django-microservices/djfrontend-multigroup
+* sudo -H pip3 install -r requirements.txt
+* python3 manage.py makemigrations polls
+* python3 manage.py migrate
+* python3 manage.py createsuperuser --email admin@example.com --username admin
+ * Superuser: admin/xxxxx
+* python3 manage.py runserver 9000
+* Admin URL:http://frontend_ip:9000/admin
+* Site user:
+ * user1 with group: site1.test.com
+ * user2 with group: site2.test.com
